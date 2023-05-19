@@ -1,0 +1,96 @@
+[
+  {
+    "_id": "59667437-68b2-4cb9-9d7b-8d89e373c583",
+    "colId": "a47918d5-9e39-4caf-b166-0b8808bff07e",
+    "containerId": "",
+    "name": "List",
+    "url": "{{URL}}/users",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-18T23:31:17.921Z",
+    "modified": "2023-05-18T23:31:24.683Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c7487e43-5b54-4790-9242-3cf4be80b8d0",
+    "colId": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "containerId": "",
+    "name": "List",
+    "url": "{{URL}}/memories",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-18T23:42:47.821Z",
+    "modified": "2023-05-18T23:42:59.288Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "daf4a38f-78e1-412e-b70b-be8a0c2417d9",
+    "colId": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "containerId": "",
+    "name": "Fetch",
+    "url": "{{URL}}/memories/{{MEMORY_ID}}",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-18T23:51:17.049Z",
+    "modified": "2023-05-19T00:06:49.547Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "94d45e63-9e6e-49b7-9109-b8ab9ea25c84",
+    "colId": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "containerId": "",
+    "name": "Create",
+    "url": "{{URL}}/memories",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-05-18T23:59:24.891Z",
+    "modified": "2023-05-19T00:03:46.778Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"content\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n  \"isPublic\": false,\n  \"coverUrl\": \"https://github.com/Marco-Veio.png\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d96f7e01-0ee2-42b7-9a68-7f808b55f505",
+    "colId": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "containerId": "",
+    "name": "Delete",
+    "url": "{{URL}}/memories/{{MEMORY_ID}}",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2023-05-19T00:03:17.680Z",
+    "modified": "2023-05-19T00:06:04.890Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "644cd20d-40ea-47ca-ae5c-e93d3bc9a0d6",
+    "colId": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "containerId": "",
+    "name": "Update",
+    "url": "{{URL}}/memories/{{MEMORY_ID}}",
+    "method": "PUT",
+    "sortNum": 20000,
+    "created": "2023-05-19T00:04:35.188Z",
+    "modified": "2023-05-19T00:08:18.329Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"content\": \"oi\",\n  \"isPublic\": false,\n  \"coverUrl\": \"https://github.com/Marco-Veio.png\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

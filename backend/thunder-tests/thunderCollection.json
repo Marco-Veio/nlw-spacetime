@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "a47918d5-9e39-4caf-b166-0b8808bff07e",
+    "colName": "Users",
+    "created": "2023-05-18T23:31:08.549Z",
+    "sortNum": 20000,
+    "folders": []
+  },
+  {
+    "_id": "4fc141e8-01fb-4d1d-8621-636558be6646",
+    "colName": "Memories",
+    "created": "2023-05-18T23:42:41.723Z",
+    "sortNum": 30000,
+    "folders": []
+  }
+]
