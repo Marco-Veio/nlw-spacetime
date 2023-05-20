@@ -1,21 +1,17 @@
 import { useEffect } from "react";
 import { useRouter } from "expo-router";
 import { setItemAsync } from "expo-secure-store";
-import { styled } from "nativewind";
 import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
-import { StatusBar } from "expo-status-bar";
-import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
+
+import { Text, TouchableOpacity, View } from "react-native";
+
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { BaiJamjuree_700Bold } from "@expo-google-fonts/bai-jamjuree";
 
 import api from "../services/api";
 
-import blurBg from "../assets/bg-blur.png";
-import stripes from "../assets/stripes.svg";
 import Logo from "../assets/logo.svg";
 import { GITHUB_CLIENT_ID, SCHEME } from "../constants";
-
-const Stripes = styled(stripes);
 
 const discovery = {
   authorizationEndpoint: "https://github.com/login/oauth/authorize",
@@ -71,10 +67,7 @@ export default function App() {
   }
 
   return (
-    <ImageBackground source={blurBg} className="relative flex-1 items-center bg-gray-900 px-8 py-8">
-      <StatusBar style="light" translucent />
-      <Stripes className="absolute left-2" />
-
+    <View className="flex-1 items-center px-8 py-8">
       <View className="flex-1 items-center justify-center gap-6">
         <Logo />
 
@@ -93,6 +86,6 @@ export default function App() {
       <Text className="text-center font-body text-sm leading-relaxed text-gray-200">
         Feito por Marco-Veio seguindo o NLW da Rocketseat
       </Text>
-    </ImageBackground>
+    </View>
   );
 }
