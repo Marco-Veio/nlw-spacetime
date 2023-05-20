@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useRouter } from "expo-router";
 import { setItemAsync } from "expo-secure-store";
 import { styled } from "nativewind";
 import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
@@ -7,55 +8,63 @@ import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { BaiJamjuree_700Bold } from "@expo-google-fonts/bai-jamjuree";
 
-import api from "./services/api";
+import api from "../services/api";
 
-import blurBg from "./assets/bg-blur.png";
-import stripes from "./assets/stripes.svg";
-import Logo from "./assets/logo.svg";
+import blurBg from "../assets/bg-blur.png";
+import stripes from "../assets/stripes.svg";
+import Logo from "../assets/logo.svg";
+import { GITHUB_CLIENT_ID, SCHEME } from "../constants";
 
 const Stripes = styled(stripes);
 
 const discovery = {
   authorizationEndpoint: "https://github.com/login/oauth/authorize",
   tokenEndpoint: "https://github.com/login/oauth/access_token",
-  revocationEndpoint: "https://github.com/settings/connections/applications/ae68188e163c7afb0cb6",
+  revocationEndpoint: `https://github.com/settings/connections/applications/${GITHUB_CLIENT_ID}`,
 };
 
 export default function App() {
+  const router = useRouter();
+
   const [loaded] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
     BaiJamjuree_700Bold,
   });
 
-  const [, response, signIn] = useAuthRequest(
+  const [, authResponse, signIn] = useAuthRequest(
     {
-      clientId: "ae68188e163c7afb0cb6",
+      clientId: GITHUB_CLIENT_ID,
       scopes: ["identity"],
       redirectUri: makeRedirectUri({
-        scheme: "nlwspacetime",
+        scheme: SCHEME,
       }),
     },
     discovery,
   );
 
+  async function handleGithubOAuthCode(code: string) {
+    const response = await api.post("register", { code });
+
+    const { token } = response.data;
+
+    await setItemAsync("token", token);
+    router.push("/memories");
+  }
+
   useEffect(() => {
     // console.log(
     //   makeRedirectUri({
-    //     scheme: "nlwspacetime",
+    //     scheme: SCHEME,
     //   }),
     // );
 
-    if (response?.type === "success") {
-      const { code } = response.params;
+    if (authResponse?.type === "success") {
+      const { code } = authResponse.params;
 
-      api.post("register", { code }).then(res => {
-        const { token } = res.data;
-
-        setItemAsync("token", token);
-      });
+      handleGithubOAuthCode(code);
     }
-  }, [response]);
+  }, [authResponse]);
 
   if (!loaded) {
     return null;

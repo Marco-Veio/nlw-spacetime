@@ -22,9 +22,13 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-05-18T23:42:47.821Z",
-    "modified": "2023-05-18T23:42:59.288Z",
+    "modified": "2023-05-20T00:30:14.331Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
     "tests": []
   },
   {
@@ -36,9 +40,13 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-18T23:51:17.049Z",
-    "modified": "2023-05-19T00:06:49.547Z",
+    "modified": "2023-05-20T00:30:46.523Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
     "tests": []
   },
   {
@@ -50,13 +58,17 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-05-18T23:59:24.891Z",
-    "modified": "2023-05-19T00:03:46.778Z",
+    "modified": "2023-05-20T00:31:03.000Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"content\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n  \"isPublic\": false,\n  \"coverUrl\": \"https://github.com/Marco-Veio.png\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
     },
     "tests": []
   },
@@ -69,9 +81,13 @@
     "method": "DELETE",
     "sortNum": 30000,
     "created": "2023-05-19T00:03:17.680Z",
-    "modified": "2023-05-19T00:06:04.890Z",
+    "modified": "2023-05-20T00:31:20.531Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
     "tests": []
   },
   {
@@ -83,7 +99,7 @@
     "method": "PUT",
     "sortNum": 20000,
     "created": "2023-05-19T00:04:35.188Z",
-    "modified": "2023-05-19T00:08:18.329Z",
+    "modified": "2023-05-20T00:31:11.378Z",
     "headers": [],
     "params": [],
     "body": {
@@ -91,6 +107,36 @@
       "raw": "{\n  \"content\": \"oi\",\n  \"isPublic\": false,\n  \"coverUrl\": \"https://github.com/Marco-Veio.png\"\n}",
       "form": []
     },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
     "tests": []
+  },
+  {
+    "_id": "0932c35c-f693-4746-be50-111c391ef024",
+    "colId": "a47918d5-9e39-4caf-b166-0b8808bff07e",
+    "containerId": "",
+    "name": "Register",
+    "url": "{{URL}}/register",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-05-19T23:32:25.099Z",
+    "modified": "2023-05-20T00:27:42.959Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"code\": \"{{CODE}}\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN}}"
+      }
+    ]
   }
 ]
