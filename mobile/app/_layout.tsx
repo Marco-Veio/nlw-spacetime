@@ -9,6 +9,8 @@ import { styled } from "nativewind";
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { BaiJamjuree_700Bold } from "@expo-google-fonts/bai-jamjuree";
 
+import api from "../services/api";
+
 import blurBg from "../assets/bg-blur.png";
 import stripes from "../assets/stripes.svg";
 
@@ -26,6 +28,7 @@ export default function Layout() {
   useEffect(() => {
     getItemAsync("token").then(token => {
       setAuthenticated(!!token);
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
     });
   }, []);
 
@@ -44,11 +47,12 @@ export default function Layout() {
           contentStyle: {
             backgroundColor: "transparent",
           },
+          animation: "fade",
         }}
       >
         <Stack.Screen name="index" redirect={authenticated} />
-        <Stack.Screen name="new" />
         <Stack.Screen name="memories" />
+        <Stack.Screen name="new" />
       </Stack>
     </ImageBackground>
   );

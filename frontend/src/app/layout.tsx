@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const authenticated = cookies().has("token");
 
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body className={`${roboto.variable} ${baiJamjure.variable} bg-gray-900 font-sans text-gray-100`}>
         <main className="grid min-h-screen grid-cols-2 bg-stars bg-cover">
           <aside className="relative flex flex-col items-start justify-between overflow-hidden border-r border-white/10 px-28 py-16">
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Copyright />
           </aside>
 
-          <aside className="flex flex-col bg-stars bg-cover p-16">{children}</aside>
+          <aside className="flex max-h-screen flex-col overflow-y-auto bg-stars bg-cover">{children}</aside>
         </main>
       </body>
     </html>
